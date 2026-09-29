@@ -1,0 +1,15 @@
+{
+  "$schema":"https://json-schema.org/draft/2020-12/schema",
+  "$id":"https://my-travel-franchise.netlify.app/schemas/travelos-lead-handover.json",
+  "type":"object","additionalProperties":false,
+  "required":["session_id","franchisee_id","timestamp","customer_profile","trip_parameters","lead_scoring","action_items"],
+  "properties":{
+    "session_id":{"type":"string","format":"uuid"},
+    "franchisee_id":{"type":"string","minLength":1},
+    "timestamp":{"type":"string","format":"date-time"},
+    "customer_profile":{"type":"object","additionalProperties":false,"required":["first_name","email"],"properties":{"first_name":{"type":"string","minLength":1},"last_name":{"type":["string","null"]},"email":{"type":"string","format":"email"},"phone":{"type":["string","null"]},"existing_client_id":{"type":["string","null"]}}},
+    "trip_parameters":{"type":"object","additionalProperties":false,"required":["destination","duration_days","est_budget_gbp","travelers"],"properties":{"destination":{"type":"string","minLength":1},"preferred_dates":{"type":"object","additionalProperties":false},"duration_days":{"type":"integer","minimum":1},"est_budget_gbp":{"type":"number","minimum":0},"travelers":{"type":"object","additionalProperties":false},"preferences":{"type":"object"},"memory_vector_references":{"type":"object"}}},
+    "lead_scoring":{"type":"object","additionalProperties":false,"required":["priority_level","confidence_score","intent_signals"],"properties":{"priority_level":{"enum":["HIGH","MEDIUM","LOW"]},"confidence_score":{"type":"number","minimum":0,"maximum":1},"intent_signals":{"type":"array","items":{"type":"string"}}}},
+    "action_items":{"type":"object","additionalProperties":false,"required":["suggested_next_step","pre_rendered_proposal_id"],"properties":{"suggested_next_step":{"type":"string"},"pre_rendered_proposal_id":{"type":"string"},"auto_followup_scheduled":{"type":["string","null"],"format":"date-time"}}}
+  }
+}
