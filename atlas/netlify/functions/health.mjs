@@ -1,0 +1,1 @@
+export default async () => new Response(JSON.stringify({service:"atlas-travelos",status:"ok",version:"1.0.0",lexis:"untouched"}),{status:200,headers:{"content-type":"application/json"}});
