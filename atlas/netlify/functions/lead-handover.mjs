@@ -1,3 +1,4 @@
+import { timingSafeEqual as safeCompare } from "node:crypto";
 import Ajv from "ajv";
 import addFormats from "ajv-formats";
 import { createClient } from "@supabase/supabase-js";
@@ -16,7 +17,7 @@ function authorized(req) {
   const expected = getEnv("TRAVELOS_INTERNAL_KEY");
   const supplied = req.headers.get("authorization")?.replace(/^Bearer\s+/i, "");
   if (!expected || !supplied || supplied.length !== expected.length) return false;
-  return crypto.timingSafeEqual(new TextEncoder().encode(supplied), new TextEncoder().encode(expected));
+  return safeCompare(new TextEncoder().encode(supplied), new TextEncoder().encode(expected));
 }
 
 export default async function handler(req) {
