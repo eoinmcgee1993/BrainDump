@@ -1,15 +1,102 @@
 {
-  "$schema":"https://json-schema.org/draft/2020-12/schema",
-  "$id":"https://my-travel-franchise.netlify.app/schemas/travelos-lead-handover.json",
-  "type":"object","additionalProperties":false,
-  "required":["session_id","franchisee_id","timestamp","customer_profile","trip_parameters","lead_scoring","action_items"],
-  "properties":{
-    "session_id":{"type":"string","format":"uuid"},
-    "franchisee_id":{"type":"string","minLength":1},
-    "timestamp":{"type":"string","format":"date-time"},
-    "customer_profile":{"type":"object","additionalProperties":false,"required":["first_name","email"],"properties":{"first_name":{"type":"string","minLength":1},"last_name":{"type":["string","null"]},"email":{"type":"string","format":"email"},"phone":{"type":["string","null"]},"existing_client_id":{"type":["string","null"]}}},
-    "trip_parameters":{"type":"object","additionalProperties":false,"required":["destination","duration_days","est_budget_gbp","travelers"],"properties":{"destination":{"type":"string","minLength":1},"preferred_dates":{"type":"object","additionalProperties":false},"duration_days":{"type":"integer","minimum":1},"est_budget_gbp":{"type":"number","minimum":0},"travelers":{"type":"object","additionalProperties":false},"preferences":{"type":"object"},"memory_vector_references":{"type":"object"}}},
-    "lead_scoring":{"type":"object","additionalProperties":false,"required":["priority_level","confidence_score","intent_signals"],"properties":{"priority_level":{"enum":["HIGH","MEDIUM","LOW"]},"confidence_score":{"type":"number","minimum":0,"maximum":1},"intent_signals":{"type":"array","items":{"type":"string"}}}},
-    "action_items":{"type":"object","additionalProperties":false,"required":["suggested_next_step","pre_rendered_proposal_id"],"properties":{"suggested_next_step":{"type":"string"},"pre_rendered_proposal_id":{"type":"string"},"auto_followup_scheduled":{"type":["string","null"],"format":"date-time"}}}
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://my-travel-franchise.netlify.app/schemas/travelos-lead-handover.json",
+  "title": "ATLAS to TravelOS Lead Handover",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "session_id",
+    "franchisee_id",
+    "timestamp",
+    "customer_profile",
+    "trip_parameters",
+    "lead_scoring",
+    "action_items"
+  ],
+  "properties": {
+    "session_id": { "type": "string", "format": "uuid" },
+    "franchisee_id": { "type": "string", "minLength": 1, "maxLength": 120 },
+    "timestamp": { "type": "string", "format": "date-time" },
+    "customer_profile": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["first_name", "email"],
+      "properties": {
+        "first_name": { "type": "string", "minLength": 1, "maxLength": 100 },
+        "last_name": { "type": ["string", "null"], "maxLength": 100 },
+        "email": { "type": "string", "format": "email", "maxLength": 320 },
+        "phone": { "type": ["string", "null"], "maxLength": 40 },
+        "existing_client_id": { "type": ["string", "null"], "maxLength": 120 }
+      }
+    },
+    "trip_parameters": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["destination", "duration_days", "est_budget_gbp", "travelers"],
+      "properties": {
+        "destination": { "type": "string", "minLength": 1, "maxLength": 240 },
+        "preferred_dates": {
+          "type": ["object", "null"],
+          "additionalProperties": false,
+          "properties": {
+            "mode": { "type": "string", "enum": ["fixed", "flexible", "unknown"] },
+            "start": { "type": ["string", "null"], "format": "date" },
+            "end": { "type": ["string", "null"], "format": "date" },
+            "flexible_window_days": { "type": ["integer", "null"], "minimum": 0, "maximum": 365 }
+          }
+        },
+        "duration_days": { "type": "integer", "minimum": 1, "maximum": 365 },
+        "est_budget_gbp": { "type": "number", "minimum": 0, "maximum": 100000000 },
+        "travelers": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["adults"],
+          "properties": {
+            "adults": { "type": "integer", "minimum": 1, "maximum": 100 },
+            "children": { "type": "integer", "minimum": 0, "maximum": 100 },
+            "infants": { "type": "integer", "minimum": 0, "maximum": 100 }
+          }
+        },
+        "preferences": {
+          "type": ["object", "null"],
+          "additionalProperties": false,
+          "properties": {
+            "travel_style": { "type": ["string", "null"], "maxLength": 120 },
+            "must_have": { "type": "array", "items": { "type": "string", "maxLength": 200 }, "maxItems": 50 },
+            "avoid": { "type": "array", "items": { "type": "string", "maxLength": 200 }, "maxItems": 50 },
+            "notes": { "type": ["string", "null"], "maxLength": 5000 }
+          }
+        },
+        "memory_vector_references": {
+          "type": ["array", "null"],
+          "items": { "type": "string", "maxLength": 200 },
+          "maxItems": 100
+        }
+      }
+    },
+    "lead_scoring": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["priority_level", "confidence_score", "intent_signals"],
+      "properties": {
+        "priority_level": { "type": "string", "enum": ["HIGH", "MEDIUM", "LOW"] },
+        "confidence_score": { "type": "number", "minimum": 0, "maximum": 1 },
+        "intent_signals": {
+          "type": "array",
+          "items": { "type": "string", "minLength": 1, "maxLength": 240 },
+          "maxItems": 50
+        }
+      }
+    },
+    "action_items": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["suggested_next_step"],
+      "properties": {
+        "suggested_next_step": { "type": "string", "minLength": 1, "maxLength": 1000 },
+        "pre_rendered_proposal_id": { "type": ["string", "null"], "maxLength": 120 },
+        "auto_followup_scheduled": { "type": ["string", "null"], "format": "date-time" }
+      }
+    }
   }
 }
