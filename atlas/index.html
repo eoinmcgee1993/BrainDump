@@ -3,43 +3,189 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>My Travel Franchise | Own the Relationship. We Run the Machine.</title>
-<meta name="description" content="A premium technology-enabled travel franchise platform powered by TravelOS and an AI concierge workflow.">
+<meta name="theme-color" content="#0b1117">
+<title>My Travel Franchise | Own the relationship. Run the business.</title>
+<meta name="description" content="A premium travel franchise built around relationship ownership, modern sales infrastructure and TravelOS operations.">
 <style>
-:root{--ink:#102033;--muted:#617080;--paper:#f5f2ea;--card:#fff;--gold:#c89b52;--line:#e4ded1}
-*{box-sizing:border-box}body{margin:0;font-family:Inter,ui-sans-serif,system-ui,-apple-system,Segoe UI,sans-serif;color:var(--ink);background:var(--paper)}
-a{color:inherit}.wrap{max-width:1180px;margin:auto;padding:0 24px}.nav{display:flex;justify-content:space-between;align-items:center;padding:24px 0}.brand{font-weight:800;letter-spacing:-.03em;font-size:20px}.nav a{text-decoration:none;margin-left:20px;color:#334256}
-.hero{padding:72px 0 88px;display:grid;grid-template-columns:1.15fr .85fr;gap:52px;align-items:center}.eyebrow{letter-spacing:.16em;text-transform:uppercase;font-size:12px;color:#8f6b2b;font-weight:700}.hero h1{font-family:Georgia,serif;font-size:clamp(50px,7vw,86px);line-height:.95;margin:16px 0 24px;letter-spacing:-.055em}.hero p{font-size:19px;line-height:1.65;color:var(--muted);max-width:660px}.cta{display:inline-block;margin-top:18px;background:var(--ink);color:#fff;padding:15px 22px;border-radius:999px;text-decoration:none;font-weight:700}
-.panel{background:linear-gradient(145deg,#14263a,#203b59);color:#fff;padding:34px;border-radius:28px;box-shadow:0 28px 70px rgba(16,32,51,.2)}.panel small{opacity:.7}.panel h3{font-family:Georgia,serif;font-size:32px;margin:10px 0 24px}.metric{display:flex;justify-content:space-between;padding:16px 0;border-top:1px solid rgba(255,255,255,.14)}.metric strong{font-size:18px}
-.section{padding:72px 0}.section h2{font-family:Georgia,serif;font-size:46px;letter-spacing:-.04em;margin:0 0 18px}.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.card{background:var(--card);border:1px solid var(--line);border-radius:22px;padding:25px}.card h3{margin:0 0 10px}.card p{color:var(--muted);line-height:1.55}.band{background:#102033;color:#fff;padding:56px 0}.band h2{color:#fff}.steps{counter-reset:step}.step{display:flex;gap:18px;padding:20px 0;border-top:1px solid rgba(255,255,255,.14)}.num{width:34px;height:34px;border-radius:50%;background:var(--gold);color:#102033;display:grid;place-items:center;font-weight:800;flex:none}
-.footer{padding:28px 0;color:#718091;font-size:13px}
-@media(max-width:820px){.hero{grid-template-columns:1fr;padding-top:40px}.grid{grid-template-columns:1fr}.hero h1{font-size:56px}}
+:root{
+  --ink:#0b1117;--ink-2:#121b24;--paper:#f4f1e9;--paper-2:#ebe6db;
+  --white:#fffdf8;--muted:#69737d;--line:#d9d3c7;--gold:#b78a45;--gold-soft:#d7bb87;
+  --max:1180px;--radius:24px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;line-height:1.5}
+a{color:inherit}
+.wrap{width:min(var(--max),calc(100% - 40px));margin-inline:auto}
+.skip{position:absolute;left:-999px;top:auto}.skip:focus{left:20px;top:20px;background:#fff;padding:12px 16px;z-index:20}
+.nav{display:flex;align-items:center;justify-content:space-between;padding:25px 0;border-bottom:1px solid var(--line)}
+.brand{font-size:14px;font-weight:850;letter-spacing:.12em}
+.navlinks{display:flex;gap:28px;font-size:13px;font-weight:650}.navlinks a{text-decoration:none;color:#3e4852}.navlinks a:hover{color:var(--ink)}
+.eyebrow{display:inline-flex;align-items:center;gap:9px;text-transform:uppercase;letter-spacing:.18em;font-size:11px;font-weight:800;color:var(--gold)}
+.eyebrow:before{content:"";width:24px;height:1px;background:currentColor}
+.hero{display:grid;grid-template-columns:1.08fr .92fr;gap:70px;align-items:end;padding:88px 0 105px}
+.hero h1{font-family:Georgia,"Times New Roman",serif;font-size:clamp(56px,7.1vw,96px);font-weight:500;letter-spacing:-.065em;line-height:.91;margin:18px 0 28px;max-width:850px}
+.hero h1 em{font-style:italic;color:#75644a}
+.hero-copy{font-size:19px;color:#56616b;max-width:650px;line-height:1.7;margin:0}
+.actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:30px}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:50px;padding:0 20px;border-radius:999px;text-decoration:none;font-weight:750;font-size:14px;border:1px solid transparent}
+.btn-primary{background:var(--ink);color:#fff}.btn-primary:hover{background:#202d38}
+.btn-secondary{border-color:#bcb5a8;color:var(--ink);background:transparent}.btn-secondary:hover{background:#ebe6db}
+.hero-card{background:var(--ink);color:#fff;padding:30px;border-radius:30px;min-height:410px;display:flex;flex-direction:column;justify-content:space-between;box-shadow:0 28px 70px rgba(11,17,23,.18)}
+.hero-card-top{display:flex;justify-content:space-between;gap:20px;color:#bfc8cf;font-size:10px;text-transform:uppercase;letter-spacing:.15em}
+.hero-card h2{font-family:Georgia,serif;font-weight:500;font-size:39px;line-height:1.02;letter-spacing:-.04em;margin:24px 0}
+.flow{display:grid;gap:0;border-top:1px solid rgba(255,255,255,.14)}
+.flow-row{display:flex;justify-content:space-between;gap:20px;padding:14px 0;border-bottom:1px solid rgba(255,255,255,.14);font-size:13px;color:#aeb8c0}
+.flow-row strong{color:#fff;font-weight:700}
+.section{padding:105px 0}.section-head{display:grid;grid-template-columns:.7fr 1.3fr;gap:40px;margin-bottom:46px}.section-head h2{font-family:Georgia,serif;font-size:clamp(40px,5vw,64px);font-weight:500;line-height:.98;letter-spacing:-.055em;margin:0;max-width:780px}.section-head p{color:var(--muted);font-size:17px;line-height:1.7;margin:8px 0 0;max-width:560px}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line)}
+.card{background:var(--paper);padding:31px;min-height:250px}.card .index{font-size:11px;letter-spacing:.14em;color:#8b7b60;font-weight:800}.card h3{font-family:Georgia,serif;font-size:28px;font-weight:500;letter-spacing:-.035em;margin:55px 0 12px}.card p{color:var(--muted);margin:0;line-height:1.65}
+.dark{background:var(--ink);color:#fff}.dark .section-head p{color:#aab4bd}.dark .eyebrow{color:var(--gold-soft)}
+.dark-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:#26313b;border:1px solid #26313b}
+.dark-card{background:var(--ink-2);padding:30px;min-height:210px}.dark-card h3{font-size:17px;margin:0 0 11px}.dark-card p{color:#9eabb5;line-height:1.65;margin:0}
+.process{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.process-item{padding:28px 22px 30px;border-right:1px solid var(--line)}.process-item:last-child{border-right:0}.process-no{font-size:11px;font-weight:800;letter-spacing:.15em;color:var(--gold)}.process h3{font-size:17px;margin:38px 0 8px}.process p{font-size:14px;color:var(--muted);line-height:1.6;margin:0}
+.statement{padding:110px 0;text-align:center;background:var(--paper-2)}.statement h2{font-family:Georgia,serif;font-size:clamp(40px,6vw,78px);font-weight:500;line-height:.98;letter-spacing:-.06em;max-width:900px;margin:0 auto}.statement p{max-width:650px;margin:25px auto 0;color:var(--muted);font-size:17px;line-height:1.7}
+.faq{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line);border:1px solid var(--line)}details{background:var(--paper);padding:24px 26px}summary{cursor:pointer;font-weight:750;list-style:none}summary::-webkit-details-marker{display:none}summary:after{content:"+";float:right;font-size:20px;font-weight:400;color:var(--gold)}details[open] summary:after{content:"−"}details p{color:var(--muted);line-height:1.65;margin:15px 30px 0 0}
+.cta{padding:100px 0}.cta-panel{background:var(--ink);color:#fff;border-radius:32px;padding:58px;display:grid;grid-template-columns:1fr auto;gap:40px;align-items:end}.cta-panel h2{font-family:Georgia,serif;font-size:clamp(42px,5vw,66px);font-weight:500;line-height:.98;letter-spacing:-.055em;margin:14px 0 0;max-width:720px}.cta-panel p{color:#aeb8c0;max-width:620px;line-height:1.65}.cta-panel .btn-primary{background:#fff;color:var(--ink)}.cta-note{font-size:12px;color:#88949e;margin-top:14px}
+footer{border-top:1px solid var(--line);padding:28px 0 40px;color:#7a848d;font-size:12px;display:flex;justify-content:space-between;gap:20px}
+@media(max-width:900px){.hero{grid-template-columns:1fr;gap:45px}.section-head{grid-template-columns:1fr}.grid3,.dark-grid{grid-template-columns:1fr}.process{grid-template-columns:1fr 1fr}.process-item:nth-child(2){border-right:0}.process-item:nth-child(-n+2){border-bottom:1px solid var(--line)}.cta-panel{grid-template-columns:1fr}}
+@media(max-width:620px){.wrap{width:min(var(--max),calc(100% - 28px))}.nav{padding:20px 0}.navlinks{display:none}.hero{padding:62px 0 75px}.hero h1{font-size:55px}.hero-card{min-height:360px;padding:25px}.section{padding:75px 0}.process{grid-template-columns:1fr}.process-item{border-right:0;border-bottom:1px solid var(--line)}.process-item:last-child{border-bottom:0}.cta-panel{padding:34px 25px;border-radius:24px}footer{flex-direction:column}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
 </style>
 </head>
 <body>
-<header class="wrap nav"><div class="brand">MY TRAVEL FRANCHISE</div><nav><a href="#model">The Model</a><a href="#platform">TravelOS</a><a href="#launch">Launch</a></nav></header>
-<main>
+<a class="skip" href="#main">Skip to content</a>
+<header class="wrap nav">
+  <a class="brand" href="#" aria-label="My Travel Franchise home">MY TRAVEL FRANCHISE</a>
+  <nav class="navlinks" aria-label="Primary">
+    <a href="#model">The model</a><a href="#platform">TravelOS</a><a href="#path">Launch path</a><a href="#apply">Enquire</a>
+  </nav>
+</header>
+
+<main id="main">
 <section class="wrap hero">
-<div><div class="eyebrow">Premium travel entrepreneurship</div><h1>Own the relationship.<br>We run the machine.</h1><p>Build a serious travel business without building the technology stack from scratch. Your franchise gives you the customer relationship, brand system, AI-assisted selling, marketing engine and TravelOS operating platform behind it.</p><a class="cta" href="#apply">Explore the franchise</a></div>
-<div class="panel"><small>ATLAS / TRAVELOS OPERATING MODEL</small><h3>Human trust. Machine leverage.</h3><div class="metric"><span>Lead capture</span><strong>ATLAS</strong></div><div class="metric"><span>Qualification</span><strong>AI-assisted</strong></div><div class="metric"><span>Operations</span><strong>TravelOS</strong></div><div class="metric"><span>Client relationship</span><strong>Franchisee-owned</strong></div><div class="metric"><span>Proposal flow</span><strong>Automated</strong></div></div>
+  <div>
+    <div class="eyebrow">Premium travel entrepreneurship</div>
+    <h1>Own the relationship.<br><em>Run the business.</em></h1>
+    <p class="hero-copy">My Travel Franchise gives independent travel entrepreneurs the brand, commercial infrastructure and operating system to build around the part that matters most: the customer relationship.</p>
+    <div class="actions">
+      <a class="btn btn-primary" href="#apply">Explore the franchise</a>
+      <a class="btn btn-secondary" href="#platform">See how TravelOS works</a>
+    </div>
+  </div>
+  <aside class="hero-card" aria-label="ATLAS and TravelOS operating model">
+    <div class="hero-card-top"><span>ATLAS / TRAVELOS</span><span>Operating model</span></div>
+    <div><h2>Human trust.<br>Operational leverage.</h2></div>
+    <div class="flow">
+      <div class="flow-row"><span>Opportunity</span><strong>ATLAS</strong></div>
+      <div class="flow-row"><span>Qualification</span><strong>Structured</strong></div>
+      <div class="flow-row"><span>Operations</span><strong>TravelOS</strong></div>
+      <div class="flow-row"><span>Relationship</span><strong>Franchisee-owned</strong></div>
+    </div>
+  </aside>
 </section>
-<section id="model" class="wrap section"><div class="eyebrow">The franchise model</div><h2>A travel business designed around leverage.</h2><div class="grid">
-<article class="card"><h3>Own the client</h3><p>You own the relationship and the commercial opportunity. The platform gives you the infrastructure around it.</p></article>
-<article class="card"><h3>Use the machine</h3><p>Lead capture, qualification, follow-up, proposal generation, analytics and workflow are designed as one operating system.</p></article>
-<article class="card"><h3>Sell premium travel</h3><p>Move from generic holiday selling toward curated, high-value journeys with structured proposal tiers.</p></article>
-</div></section>
-<section id="platform" class="band"><div class="wrap section"><div class="eyebrow" style="color:#d5b77a">TravelOS</div><h2>The operating layer behind the franchise.</h2><div class="grid">
-<article class="card"><h3>ATLAS Concierge</h3><p>Conversational qualification turns an enquiry into structured travel intent and a sales-ready handover.</p></article>
-<article class="card"><h3>Proposal Engine</h3><p>Core, upgraded and premium trip structures are generated from a frozen source snapshot for traceable pricing.</p></article>
-<article class="card"><h3>Franchise Dashboard</h3><p>One place for leads, proposals, customer state, follow-up and operational visibility.</p></article>
-</div></div></section>
-<section id="launch" class="wrap section"><div class="eyebrow">90-day pathway</div><h2>From decision to first clients.</h2><div class="steps">
-<div class="step"><div class="num">1</div><div><strong>Position</strong><div>Choose your market and premium travel proposition.</div></div></div>
-<div class="step"><div class="num">2</div><div><strong>Launch</strong><div>Activate the brand, lead engine and TravelOS workspace.</div></div></div>
-<div class="step"><div class="num">3</div><div><strong>Acquire</strong><div>Run the acquisition playbook and convert qualified enquiries.</div></div></div>
-<div class="step"><div class="num">4</div><div><strong>Scale</strong><div>Use automation, analytics and repeat-client economics to grow.</div></div></div>
-</div></section>
-<section id="apply" class="wrap section"><div class="panel"><small>PRIVATE FRANCHISE ENQUIRY</small><h3>Build the travel business around the relationship, not the paperwork.</h3><p>Tell us where you want to operate and what type of premium traveller you want to serve.</p><a class="cta" href="mailto:hello@mytravelfranchise.com">Start a conversation</a></div></section>
+
+<section id="model" class="wrap section">
+  <div class="section-head">
+    <div><div class="eyebrow">The model</div></div>
+    <div>
+      <h2>Built for people who want to sell travel, not build software.</h2>
+      <p>The franchise removes the need to assemble a marketing stack, CRM workflow, proposal process and operating system from scratch. You stay close to the client. The platform handles the machinery around the relationship.</p>
+    </div>
+  </div>
+  <div class="grid3">
+    <article class="card"><span class="index">01</span><h3>Own the client</h3><p>Your value is the relationship. You advise, close, service and grow the customer account.</p></article>
+    <article class="card"><span class="index">02</span><h3>Use the infrastructure</h3><p>ATLAS and TravelOS organise enquiries, qualification, proposals, follow-up and operational state in one workflow.</p></article>
+    <article class="card"><span class="index">03</span><h3>Sell better journeys</h3><p>Present curated travel around a customer's priorities instead of competing on a catalogue of generic holidays.</p></article>
+  </div>
+</section>
+
+<section id="platform" class="dark">
+<section class="wrap section">
+  <div class="section-head">
+    <div><div class="eyebrow">TravelOS</div></div>
+    <div>
+      <h2>The operating layer behind the franchise.</h2>
+      <p>ATLAS captures and structures opportunity. TravelOS gives the franchisee a repeatable commercial workflow from first enquiry through proposal and follow-up.</p>
+    </div>
+  </div>
+  <div class="dark-grid">
+    <article class="dark-card"><h3>ATLAS Concierge</h3><p>Conversational intake turns an enquiry into structured travel requirements and a sales-ready handover.</p></article>
+    <article class="dark-card"><h3>Lead intelligence</h3><p>Priority, confidence and intent signals help the franchisee decide what needs attention first.</p></article>
+    <article class="dark-card"><h3>Proposal engine</h3><p>Trip requirements become proposal options through a traceable workflow, with supplier data kept separate from presentation logic.</p></article>
+    <article class="dark-card"><h3>Franchise workspace</h3><p>A single operating view for leads, proposals, customer state, follow-up and performance.</p></article>
+  </div>
+</section>
+</section>
+
+<section id="path" class="wrap section">
+  <div class="section-head">
+    <div><div class="eyebrow">Launch path</div></div>
+    <div>
+      <h2>A clear route from setup to a functioning travel business.</h2>
+      <p>The exact pace depends on the franchisee, market and operational readiness. The 90-day pathway is a framework, not a promise of results.</p>
+    </div>
+  </div>
+  <div class="process">
+    <div class="process-item"><span class="process-no">01 / POSITION</span><h3>Choose the proposition</h3><p>Define the traveller, niche and premium service angle you intend to own.</p></div>
+    <div class="process-item"><span class="process-no">02 / LAUNCH</span><h3>Activate the system</h3><p>Set up brand assets, workspace, lead routing and the operating playbook.</p></div>
+    <div class="process-item"><span class="process-no">03 / ACQUIRE</span><h3>Work qualified demand</h3><p>Use the acquisition and follow-up process to turn enquiries into conversations.</p></div>
+    <div class="process-item"><span class="process-no">04 / SCALE</span><h3>Build repeat economics</h3><p>Improve conversion, service, referrals and repeat travel without rebuilding the system each time.</p></div>
+  </div>
+</section>
+
+<section class="statement">
+  <div class="wrap">
+    <h2>The franchisee owns the relationship. The platform runs the machinery.</h2>
+    <p>That separation is deliberate. Technology should increase the amount of time spent with customers, not replace the person customers trust.</p>
+  </div>
+</section>
+
+<section class="wrap section">
+  <div class="section-head">
+    <div><div class="eyebrow">What you get</div></div>
+    <div>
+      <h2>One commercial system instead of a pile of disconnected tools.</h2>
+      <p>The exact franchise package, supplier access and commercial terms are defined separately during the franchise process.</p>
+    </div>
+  </div>
+  <div class="grid3">
+    <article class="card"><span class="index">BRAND</span><h3>Positioning</h3><p>A premium customer-facing identity and framework designed to support a relationship-led travel proposition.</p></article>
+    <article class="card"><span class="index">GROWTH</span><h3>Lead generation</h3><p>Acquisition workflows and qualification infrastructure designed to turn attention into structured opportunities.</p></article>
+    <article class="card"><span class="index">OPERATIONS</span><h3>TravelOS</h3><p>The operating layer connecting customer requirements, sales actions, proposals and follow-up.</p></article>
+  </div>
+</section>
+
+<section class="wrap section">
+  <div class="section-head">
+    <div><div class="eyebrow">Questions worth asking</div></div>
+    <div><h2>No theatre. Just the operating model.</h2></div>
+  </div>
+  <div class="faq">
+    <details><summary>Who owns the customer relationship?</summary><p>The franchisee. ATLAS and TravelOS are infrastructure around the relationship, not a replacement for the advisor.</p></details>
+    <details><summary>Does ATLAS replace a travel advisor?</summary><p>No. It handles structured intake and operational handover so the advisor can spend more time on judgement, selling and service.</p></details>
+    <details><summary>Is supplier inventory already live?</summary><p>The platform is designed around provider integrations. Live inventory, pricing and availability should only be presented when a configured supplier source supports them.</p></details>
+    <details><summary>Is this an AI-only travel business?</summary><p>No. AI-assisted workflows are one part of the stack. Customer trust, commercial judgement and service remain human responsibilities.</p></details>
+  </div>
+</section>
+
+<section id="apply" class="wrap cta">
+  <div class="cta-panel">
+    <div>
+      <div class="eyebrow">Private franchise enquiry</div>
+      <h2>Build around the relationship, not the paperwork.</h2>
+      <p>Tell us where you want to operate, who you want to serve and what kind of travel business you want to build.</p>
+      <div class="cta-note">Initial enquiries are handled directly. No automated sales funnel, no pressure sequence.</div>
+    </div>
+    <a class="btn btn-primary" href="mailto:hello@mytravelfranchise.com">Start a conversation</a>
+  </div>
+</section>
 </main>
-<footer class="wrap footer">© 2026 My Travel Franchise. TravelOS and ATLAS are platform concepts within the operating model.</footer>
-</body></html>
+
+<footer class="wrap">
+  <span>© 2026 My Travel Franchise</span>
+  <span>ATLAS + TravelOS operating platform</span>
+</footer>
+</body>
+</html>
