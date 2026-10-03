@@ -12,7 +12,9 @@ create index if not exists idx_travelos_leads_email
 
 -- The service API is the only intended writer. Franchisees receive read-only access.
 revoke all on table public.travelos_leads from anon;
+revoke insert, update, delete on table public.travelos_leads from authenticated;
 revoke all on table public.travelos_events from anon, authenticated;
+revoke insert, update, delete on table public.travelos_proposals from authenticated;
 revoke all on table public.telemetry_traces from anon, authenticated;
 
 grant select on table public.travelos_leads to authenticated;
